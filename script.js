@@ -15,7 +15,7 @@
             var date = new Date();
             var h = date.getHours();
             var m = date.getMinutes();
-            var s = date.getSeconds();
+            var s = date.getSeconds()+1;
             var ampm = h >= 12 ? 'pm' : 'am';
             h = h % 12;
             h = h ? h : 12;
@@ -149,7 +149,7 @@ Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
             ];
 
 
-    locations.forEach((location) => {
+    locations.map(location => {
                 let marker = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(location.lat, location.lng));
                 map.entities.push(marker);
             });
